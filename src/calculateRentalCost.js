@@ -5,15 +5,22 @@
  */
 function calculateRentalCost(days) {
   // write code here
-  if (days >= 3 && days < 7) {
-    return days * 40 - 20;
+
+  const MINIMUM_DAYS_FORCOST = 3;
+  const MAXIMUM_DAYS_FORCOST = 7;
+  const MINIMUM_DISCOUNT = 20;
+  const MAXIMUM_DISCOUNT = 50;
+  const COST_PER_DAY = 40;
+
+  if (days >= MINIMUM_DAYS_FORCOST && days < MAXIMUM_DAYS_FORCOST) {
+    return days * COST_PER_DAY - MINIMUM_DISCOUNT;
   }
 
-  if (days >= 7) {
-    return days * 40 - 50;
+  if (days >= MAXIMUM_DAYS_FORCOST) {
+    return days * COST_PER_DAY - MAXIMUM_DISCOUNT;
   }
 
-  return days * 40;
+  return days * COST_PER_DAY;
 }
 
 module.exports = calculateRentalCost;
